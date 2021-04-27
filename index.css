@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+
+.screen {
+  box-sizing: border-box;
+  width: 100vw;
+  padding: 3vh 3vw;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  width: 40vw;
+  height: 15vh;
+  margin-bottom: 3vh;
+}
+
+button {
+  border-radius: 10px;
+  height: 5vh;
+  width: 10vw;
+  background-color: #4578FB;
+  margin-bottom: 3vh;
+  font-size: 1.1vw;
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+}
+
+
+button:hover {
+  opacity: .8;
+}
+
+button:active {
+  opacity: .5;
+}

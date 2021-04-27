@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traveling Salesman Problem</title>
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/graphdracula/1.2.1/dracula.min.js"></script>
+  </head>
+  <body>
+    <div class="screen">
+      <h1>Traveling Salesman Problem</h1>
+      <textarea id="text"></textarea>
+      <button type="button" id="button">
+        Crear Grafo
+      </button>
+      <h3>Resultado</h3>
+      <p id="result">0</p>
+      <div id="canvas"></div>
+    </div>
+    <script>
+      document.getElementById("button").addEventListener("click", () => {
+        const g = new Dracula.Graph();
+        const text = document.getElementById("text").value;
+        const lines = text.split("\n");
+        const edges = lines.map(line => line.split(" "));
+        const nodes = new Set();
+        edges.forEach( edge => {
+          nodes.add(edge[0]);
+          nodes.add(edge[1]);
+          g.addEdge(edge[0], edge[1]);
+        });
+        const row = [];
+        const arr = [];
+        const nodesArray = Array.from(nodes);
+        const nodesMap = {}
+        for (let x = 0; x < nodes.size; x++) {
+          row.push(-1);
+          nodesMap[nodesArray[x]] = x
+        }
+        for (let x = 0; x < nodes.size; x++) {
+          arr.push(new Array(...row));
+        }
+        for (let x = 0; x < nodes.size; x++) {
+          arr[x][x] = 0;
+        }
+        edges.forEach(edge => {
+          arr[nodesMap[edge[0]]][nodesMap[edge[1]]] = +edge[2];
+          arr[nodesMap[edge[1]]][nodesMap[edge[0]]] = +edge[2];
+        });
+        console.log(arr);
+        console.log(nodesMap);
+        
+        const layouter = new Dracula.Layout.Spring(g);
+        layouter.layout();
+
+        const renderer = new Dracula.Renderer.Raphael(document.getElementById('canvas'), g, 400, 300);
+        renderer.draw();
+        document.getElementById("result").innerHTML = "ABCDEGF = 51";
+      });
+    </script>
+  </body>
+</html>
