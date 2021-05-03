@@ -5,15 +5,40 @@ body {
 .screen {
   box-sizing: border-box;
   width: 100vw;
-  padding: 3vh 3vw;
+  padding: 2vh 3vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.input {
   display: flex;
   flex-direction: column;
+  width: 43vw;
+  padding: 0 2vw;
+  height: 96vh;
+  border-right: 3px solid black;
+}
+
+.graph {
+  display: flex;
+  flex-direction: column;
+  width: 44vw;
+  margin-left: 3vw;
+  height: 96vh;
 }
 
 textarea {
   width: 40vw;
-  height: 15vh;
-  margin-bottom: 3vh;
+  height: 28vh;
+}
+
+.buttons {
+  display: flex;
+  width: 30vw;
+  padding: 5vh 5vw;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 3px solid gray;
 }
 
 button {
@@ -21,13 +46,11 @@ button {
   height: 5vh;
   width: 10vw;
   background-color: #4578FB;
-  margin-bottom: 3vh;
   font-size: 1.1vw;
   color: #FFFFFF;
   border: none;
   cursor: pointer;
 }
-
 
 button:hover {
   opacity: .8;
@@ -35,4 +58,32 @@ button:hover {
 
 button:active {
   opacity: .5;
+}
+
+h1 {
+  margin: 2vh 0 3vh 0;
+  font-size: 2vw;
+}
+
+h3 {
+  margin: 5vh 0 4vh 0;
+  font-size: 1.5vw;
+}
+
+.graph-title {
+  margin-top: calc(2vh + .5vw);
+  margin-bottom: calc(2vh);
+  align-self: center;
+}
+
+.result {
+  font-size: 1.1vw;
+  margin: 0 0 3vh 0;
+}
+
+#mynetwork {
+  width: 40vw;
+  height: 80vh;
+  align-self: center;
+  border: 1px solid lightgray;
 }

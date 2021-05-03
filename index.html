@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
+    <meta charset="UTF-8">
     <title>Traveling Salesman Problem</title>
     <link rel="stylesheet" href="./index.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.3.0/raphael.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/graphdracula/1.2.1/dracula.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis-network.min.js"></script>
     <script async type="module" src="./tsp.js"></script>
   </head>
   <body>
     <div class="screen">
-      <h1>Traveling Salesman Problem</h1>
-      <textarea id="text"></textarea>
-      <button type="button" id="button">
-        Crear Grafo
-      </button>
-      <button type="button" id="solve-btn">
-        Resolver TSP
-      </button>
-      <h3>Resultado</h3>
-      <p id="result">0</p>
-      <div id="canvas"></div>
+      <div class="input">
+        <h1>Traveling Salesman Problem</h1>
+        <textarea id="text"></textarea>
+        <div class="buttons">
+          <button type="button" id="button">
+            Calcular
+          </button>
+          <button type="button" id="clear-button">
+            Limpiar
+          </button>  
+        </div>
+        <h3>Resultado</h3>
+        <p id="path" class="result">Camino:</p>
+        <p id="length" class="result">Largo:</p>
+        <p id="time" class="result">Tiempo:</p>
+      </div>
+      <div class="graph">
+        <h3 class="graph-title">Grafo</h3>
+        <div id="mynetwork"></div>
+      </div>
     </div>
-    <script>
-      
-    </script>
   </body>
 </html>
